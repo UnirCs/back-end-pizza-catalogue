@@ -6,8 +6,8 @@ eureka:
   instance:
     preferIpAddress: false
     hostname: back-end-pizza-catalogue-production.up.railway.app
-    non-secure-port-enabled: true
-    secure-port-enabled: false
+    non-secure-port-enabled: false
+    secure-port-enabled: true
     non-secure-port: 80
     secure-port: 443
     
