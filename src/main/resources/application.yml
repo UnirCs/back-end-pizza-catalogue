@@ -3,9 +3,10 @@ eureka:
   client:
     service-url:
       defaultZone: ${EUREKA_URL:http://localhost:8761/eureka}
+      
   instance:
     preferIpAddress: false
-    hostname: back-end-pizza-catalogue-production.up.railway.app
+    hostname: ${HOSTNAME:localhost}
     non-secure-port-enabled: false
     secure-port-enabled: true
     non-secure-port: 80
