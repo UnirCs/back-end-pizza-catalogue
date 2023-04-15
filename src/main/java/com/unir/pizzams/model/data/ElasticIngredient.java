@@ -26,12 +26,24 @@ public class ElasticIngredient {
 	@Id
 	private String id;
 
-	@MultiField(mainField = @Field(type = FieldType.Keyword, name = "name"), otherFields = @InnerField(suffix = "search", type = FieldType.Search_As_You_Type))
-	private String name;
+	@MultiField(mainField = @Field(type = FieldType.Keyword, name = "displayName"), otherFields = @InnerField(suffix = "search", type = FieldType.Search_As_You_Type))
+	private String displayName;
+	
+	@Field(type = FieldType.Keyword, name = "internalName")
+	private String internalName;
 
 	@Field(type = FieldType.Text, name = "description")
 	private String description;
 
 	@Field(type = FieldType.Boolean, name = "vegan")
 	private Boolean vegan;
+	
+	@Field(type = FieldType.Text, name = "base64")
+	private String base64Img;
+	
+	@Field(type = FieldType.Double, name = "price")
+	private Double price;
+	
+	@Field(type = FieldType.Boolean, name = "spicy")
+	private Boolean spicy;
 }

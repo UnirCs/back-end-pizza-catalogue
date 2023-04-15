@@ -15,13 +15,21 @@ import lombok.ToString;
 @AllArgsConstructor
 public class Ingredient {
 
-	private String name;
+	private String displayName;
+	private String internalName;
 	private String description;
+	private String base64Img;
 	private Boolean vegan;
+	private Boolean spicy;
+	private Double price;
 
 	public Ingredient(ElasticIngredient elasticItem) {
-		this.name = elasticItem.getName();
+		this.displayName = elasticItem.getDisplayName();
+		this.internalName = elasticItem.getInternalName();
 		this.vegan = elasticItem.getVegan();
 		this.description = elasticItem.getDescription();
+		this.base64Img = elasticItem.getBase64Img();
+		this.price = elasticItem.getPrice();
+		this.spicy = elasticItem.getSpicy();
 	}
 }

@@ -51,7 +51,7 @@ public class DataAccessRepository {
 	}
 
 	public ElasticIngredient getIngredientById(String id) {
-		return ingredientRepository.findByName(id).orElse(null);
+		return ingredientRepository.findByInternalName(id).orElse(null);
 	}
 
 	public ElasticIngredient saveOrUpdate(ElasticIngredient ingredient) {

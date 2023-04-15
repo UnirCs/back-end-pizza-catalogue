@@ -9,7 +9,7 @@ import com.unir.pizzams.model.data.ElasticIngredient;
 
 public interface ElasticIngredientRepository extends ElasticsearchRepository<ElasticIngredient, String> {
 
-	Optional<ElasticIngredient> findByName(String name);
+	Optional<ElasticIngredient> findByInternalName(String name);
 	
 	List<ElasticIngredient> findAll();
 

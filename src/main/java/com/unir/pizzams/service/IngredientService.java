@@ -39,29 +39,33 @@ public class IngredientService {
 
 	public Ingredient registerIngredient(Ingredient ingredient) {
 
-		if (!StringUtils.isEmpty(ingredient.getName()) && !StringUtils.isEmpty(ingredient.getDescription())
-				&& Objects.nonNull(ingredient.getVegan())) {
+		if (!StringUtils.isEmpty(ingredient.getDisplayName()) && !StringUtils.isEmpty(ingredient.getDescription())
+				&& Objects.nonNull(ingredient.getVegan()) && !StringUtils.isEmpty(ingredient.getInternalName())
+				&& !StringUtils.isEmpty(ingredient.getBase64Img())) {
 
-			ElasticIngredient elasticIngredient = repository.getIngredientById(ingredient.getName());
+			ElasticIngredient elasticIngredient = repository.getIngredientById(ingredient.getInternalName());
 			if (elasticIngredient == null) {
-				repository.saveOrUpdate(new ElasticIngredient(null, ingredient.getName(), ingredient.getDescription(),
-						ingredient.getVegan()));
+				repository.saveOrUpdate(new ElasticIngredient(null, ingredient.getDisplayName(),
+						ingredient.getInternalName(), ingredient.getDescription(), ingredient.getVegan(),
+						ingredient.getBase64Img(), ingredient.getPrice(), ingredient.getSpicy()));
 				return ingredient;
 			} else {
-				log.warn("Trying to create an existing ingredient {}", ingredient.getName());
+				log.warn("Trying to create an existing ingredient {}", ingredient.getDisplayName());
 				return null;
 			}
 		} else {
 			return null;
 		}
-
 	}
 
 	public Ingredient updateIngredient(Ingredient ingredient) {
-		ElasticIngredient elasticIngredient = repository.getIngredientById(ingredient.getName());
+		ElasticIngredient elasticIngredient = repository.getIngredientById(ingredient.getInternalName());
 		elasticIngredient.setDescription(ingredient.getDescription());
-		elasticIngredient.setName(ingredient.getName());
+		elasticIngredient.setDisplayName(ingredient.getDisplayName());
 		elasticIngredient.setVegan(ingredient.getVegan());
+		elasticIngredient.setBase64Img(ingredient.getBase64Img());
+		elasticIngredient.setSpicy(ingredient.getSpicy());
+		elasticIngredient.setPrice(ingredient.getPrice());
 		repository.saveOrUpdate(elasticIngredient);
 		return ingredient;
 

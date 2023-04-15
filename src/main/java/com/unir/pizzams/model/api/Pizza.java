@@ -32,7 +32,7 @@ public class Pizza {
 		this.sale = elasticItem.getSale();
 		this.vegan = elasticItem.getVegan();
 		this.description = elasticItem.getDescription();
-		this.ingredients = elasticItem.getIngredients().stream().map(ElasticIngredient::getName)
+		this.ingredients = elasticItem.getIngredients().stream().map(ElasticIngredient::getInternalName)
 				.collect(Collectors.toList());
 	}
 
