@@ -1,0 +1,63 @@
+{
+    "mappings" : {
+      "properties" : {
+        "_class" : {
+          "type" : "keyword",
+          "index" : false,
+          "doc_values" : false
+        },
+        "base64" : {
+          "type" : "text"
+        },
+        "description" : {
+          "type" : "text"
+        },
+        "displayName" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "id" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "internalName" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "name" : {
+          "type" : "keyword",
+          "fields" : {
+            "search" : {
+              "type" : "search_as_you_type",
+              "doc_values" : false,
+              "max_shingle_size" : 3
+            }
+          }
+        },
+        "price" : {
+          "type" : "float"
+        },
+        "spicy" : {
+          "type" : "boolean"
+        },
+        "vegan" : {
+          "type" : "boolean"
+        }
+      }
+    }
+  }
