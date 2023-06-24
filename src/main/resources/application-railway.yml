@@ -1,0 +1,8 @@
+## Se modifica la configuracion para que el balanceador use la direccion IP en lugar del hostname
+eureka:
+  instance:
+    preferIpAddress: true
+    non-secure-port-enabled: false
+    secure-port-enabled: true
+    non-secure-port: 80
+    secure-port: 443
