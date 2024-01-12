@@ -8,7 +8,7 @@
 		<relativePath />
 	</parent>
 	<groupId>com.unir</groupId>
-	<artifactId>pizza-ms</artifactId>
+	<artifactId>pizza-catalogue-ms</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>pizza-ms</name>
 	<description>Unir Pizza MS</description>
@@ -35,7 +35,8 @@
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<optional>true</optional>
+			<version>1.18.30</version>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

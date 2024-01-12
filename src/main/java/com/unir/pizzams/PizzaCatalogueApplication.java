@@ -7,7 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @SpringBootApplication
 @Slf4j
-public class PizzaMsApplication {
+public class PizzaCatalogueApplication {
 
 	public static void main(String[] args) {
 
@@ -22,7 +22,7 @@ public class PizzaMsApplication {
 			e.printStackTrace();
 		}
 		
-		SpringApplication.run(PizzaMsApplication.class, args);
+		SpringApplication.run(PizzaCatalogueApplication.class, args);
 	}
 
 }
