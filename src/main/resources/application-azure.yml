@@ -1,7 +1,7 @@
 ## Se modifica la configuracion para que el balanceador use la direccion IP en lugar del hostname
 eureka:
   instance:
-    preferIpAddress: false
+    preferIpAddress: true
     non-secure-port-enabled: false
     secure-port-enabled: true
     non-secure-port: 80
