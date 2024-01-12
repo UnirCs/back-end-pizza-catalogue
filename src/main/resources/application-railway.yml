@@ -1,4 +1,5 @@
-## Se modifica la configuracion para que el balanceador use la direccion IP en lugar del hostname
+## Se modifica la configuracion para que el balanceador use el nombre de dominio privado de Railway en lugar de la IP
+## Podemos obtener este valor en la pestaña de despliegue de Railway, Settings -> Networking -> Private Networking
 eureka:
   instance:
     preferIpAddress: false
