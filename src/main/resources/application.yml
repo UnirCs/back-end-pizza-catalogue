@@ -16,7 +16,7 @@ spring:
 
 ## Instance port
 server:
-  port: 8084
+  port: ${PORT:8084}
 
 ##Elasticsearch config
 elasticsearch:
