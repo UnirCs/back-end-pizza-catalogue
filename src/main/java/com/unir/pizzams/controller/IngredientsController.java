@@ -42,7 +42,30 @@ public class IngredientsController {
 			return ResponseEntity.internalServerError().build();
 		}
 	}
-	
+
+	@GetMapping("/ingredients/{ingredientName}")
+	/**
+	 * Posibles respuestas 200, 404, 500
+	 * @return
+	 */
+	public ResponseEntity<Ingredient> getIngredient(@PathVariable String ingredientName) {
+
+		try {
+			Ingredient ingredient = service.getIngredientById(ingredientName);
+			if(ingredient == null) {
+				return ResponseEntity.notFound().build();
+			}
+			else {
+				return ResponseEntity.ok(ingredient);
+			}
+		} catch (Exception e) {
+			log.error("Unexpected exception retrieving ingredients: {}", e.getMessage(), e);
+			// Logamos error pero no lo devolvemos, para prevenir que un cliente sepa como
+			// esta organizado nuestro codigo
+			return ResponseEntity.internalServerError().build();
+		}
+	}
+
 	@PostMapping("/ingredients")
 	/**
 	 * Posibles respuestas 201, 400, 500
