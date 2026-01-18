@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-@Document(indexName = "pizzas", createIndex = true)
+@Document(indexName = "pizzas")
 @Getter
 @Setter
 @ToString
